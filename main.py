@@ -6,7 +6,7 @@ import math
 #ネットワークの初期値
 import ini_network
 network = ini_network.network
-print(network[1]['W'])
+##print(network[1]['W'])
 
 #順方向計算
 import output
@@ -41,14 +41,16 @@ learning_step = 0.1
 
 errors = []
 sequence = []
+networks = []
 
 for i in range(learning_time):
 
     print("==========================")
     print("Learning Step :",i+1,"/",learning_time)
     print("\n")
-    x_train_lerning = output.mini_batch(x_train, t_train, batch_size)[0]
-    t_train_lerning = output.mini_batch(x_train, t_train, batch_size)[1]
+    #x_train_lerning = output.mini_batch(x_train, t_train, batch_size)[0]
+    #t_train_lerning = output.mini_batch(x_train, t_train, batch_size)[1]
+    x_train_lerning, t_train_lerning = output.mini_batch(x_train, t_train, batch_size)
 
     result =  output.AllLayerCal(x_train_lerning, network)
     error = error_evaluation.mean_error(result, t_train_lerning, error_function)
@@ -73,6 +75,7 @@ for i in range(learning_time):
     grad = network_update.network_gradient(network, x_train_lerning, t_train_lerning, error_function, grad_step)
     next_network = network_update.update_network(network, grad, learning_step)
     net_work = next_network
+    networks.append(net_work)
     print("---- network updated -----")
     print("==========================")
     print("\n")

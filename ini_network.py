@@ -11,7 +11,7 @@ network = {}
 
 #784*50
 network[0] = {
-    'W': np.random.rand(784, 50)*0.01,
+    'W': np.random.rand(784, 50)*0.001,
     #'b': np.random.rand(50)*0.01
     'b': np.zeros(50)*0.01
 }

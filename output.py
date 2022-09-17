@@ -19,6 +19,12 @@ def mini_batch(x_train, t_train, batch_size):
     use_data_index = np.random.choice(x_train_size, batch_size)
     x_train_used = x_train[use_data_index]
     t_train_used = t_train[use_data_index]
+    print("--- index ---")
+    print(use_data_index)
+    print("--- xtrain used ---")
+    print(x_train_used)
+    print("--- ttrain used ---")
+    print(t_train_used)
     return [x_train_used, t_train_used]
 
 def OneLayerCal(x, W, b):

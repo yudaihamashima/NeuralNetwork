@@ -23,7 +23,7 @@ def enpty_samesize_network(network):
 
 
 def network_error(network, x_train_lerning, t_train_lerning, error_function):
-    result =  output.AllLayerCal(x_train_lerning, network)
+    result = output.AllLayerCal(x_train_lerning, network)
     error = error_evaluation.mean_error(result, t_train_lerning, error_function)
     return error    
 
